@@ -98,7 +98,7 @@ function populateMark(brews) {
             new mapboxgl.Marker(el)
                 .setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + '</p><p>' + `${marker[i].website_url}` + '</p><p>' + `${marker[i].brewery_type}` + '</p>'))
+                    .setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + ', ' + `${marker[i].city}` + ', ' + `${marker[i].state}` + '</p>' + '<br>' + '<button class="parking-b">Check for Parking </button>'))
                 .addTo(map);
 
             mainCard(brews);
