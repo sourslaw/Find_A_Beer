@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    min-width: 320px;
+    background-color: rgb(249, 250, 235);
+    color: #777;
+    line-height: 1.6;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+/* Pure CSS styling */
+
+.pure-img {
+    background-image: url("https://suburbantap.com/wp-content/uploads/2016/03/beer-banner.jpg");
+    max-width: 100%;
+    min-height: 14em;
+    display: block;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+.pure-img2 {
+    max-width: 60%;
+    display: block;
+    margin: auto;
+}
+
+.appName {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    z-index: 2;
+    font-size: 5rem;
+    transform: translate(-50%, -50%);
+    color: #1a1a1a;
+}
+
+.pure-menu {
+    background: #f9c74f;
+    padding-left: 5vw;
+    font-weight: bolder;
+    margin-bottom: 3%;
+}
+
+.pure-g {
+    letter-spacing: -.31em;
+    text-rendering: optimizespeed;
+    font-family: FreeSans, Arimo, Droid Sans, Helvetica, Arial, sans-serif;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+.pure-g [class*=pure-u],
+button,
+html,
+input,
+select,
+textarea,
+map {
+    font-family: Helvetica, Arial, sans-serif;
+    letter-spacing: .01em;
+}
+
+.grids .grids-example [class*=pure-u] {
+    padding: 0;
+    border-width: 1px 0 0;
+    text-align: left;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.grids-example [class*=pure-u] {
+    font-family: Consolas, Liberation Mono, Courier, monospace;
+    text-align: center;
+    padding: 1em 0;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-bottom: none;
+}
+
+.pure-g [class*=pure-u],
+button,
+html,
+input,
+select,
+textarea {
+    font-family: Helvetica, Arial, sans-serif;
+    letter-spacing: .01em;
+}
+
+.pure-u-2-5 {
+    width: 40%;
+    overflow-y: auto;
+}
+
+
+/* button code */
+
+.pure-button {
+    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
+}
+
+.pure-button {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+}
+
+.pure-button:hover {
+    background-image: linear-gradient(to left, #F09819 0%, #EDDE5D 51%, #F09819 100%);
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* mapbox map styling */
+
+.map-text h3 {
+    /* padding-left: 5.75vw; */
+    margin-top: 5vh;
+    max-width: 50vw;
+    margin-bottom: 4vh;
+}
+
+.search-text {
+    margin-top: 5vh;
+}
+
+#map-container {
+    height: 100%;
+}
+
+#map {
+    position: absolute;
+    top: 45;
+    width: 55%;
+    height: 70%;
+    padding: 20%
+}
+
+.mapboxgl-canvas,
+a.mapboxgl-ctrl-logo {
+    margin-left: 5.6vw;
+}
+
+.pure-form {
+    display: inline-block;
+}
+
+#searchField {
+    display: inline-block;
+}
+
+#brewsList {
+    width: 40vw;
+    padding-right: 5vw;
+    margin-top: 3vh;
+}
+
+
+/* style the marker */
+
+.marker {
+    background-image: url('https://cdn.iconscout.com/icon/free/png-512/beer-mug-glass-drink-cocktail-emoj-symbol-babr-30679.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.otherMarker {
+    background-image: url('https://image.similarpng.com/very-thumbnail/2020/11/Toilet-tissue-paper-roll-icon-illustration-on-transparent-background-PNG.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* style for the mark pop-up */
+
+.mapboxgl-popup {
+    max-width: 200px;
+    border-radius: 55px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* footer */
+
+#footer {
+    font-size: 87.5%;
+    border-top: 1px solid #eee;
+    /* margin-top: 3.4286em;
+    padding: 1.1429em; */
+    background: #fafafa;
+    /* background-color: aqua; */
+    height: 20vh;
+    margin-top: 76vh;
+    padding-top: 3vh;
+}
+
+.info {
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.pure-g {
+    letter-spacing: -.31em;
+    text-rendering: optimizespeed;
+    font-family: FreeSans, Arimo, Droid Sans, Helvetica, Arial, sans-serif;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+.info-names {
+    margin-top: 0;
+}
+
+.info-links {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+
+/* @media screen and (min-width: 35.5em)
+.u-sm-1-2, .u-sm-12-24 {
+    width: 50%;
+    *width: 49.969%;
+} 
+ */
