@@ -20,7 +20,7 @@ html {
 /* Pure CSS styling */
 
 .pure-img {
-    background-image: url("https://suburbantap.com/wp-content/uploads/2016/03/beer-banner.jpg");
+    background-image: url("https://i.pinimg.com/originals/43/b3/8a/43b38a6bbb4537b3ef444049002f26b7.jpg");
     max-width: 100%;
     min-height: 14em;
     display: block;
@@ -29,11 +29,6 @@ html {
     background-size: auto;
 }
 
-.pure-img2 {
-    max-width: 60%;
-    display: block;
-    margin: auto;
-}
 
 .appName{
     position: absolute;
