@@ -149,16 +149,17 @@ textarea {
 
 #map {
     position: absolute;
+    overflow: hidden;
     top: 45;
-    width: 55%;
+    width: 50%;
     height: 70%;
-    padding:20%
+    padding: 20%;
+    left: 5%;
 }
 
-.mapboxgl-canvas,
+/* .mapboxgl-canvas,
 a.mapboxgl-ctrl-logo{
-    margin-left: 5.6vw;
-}
+    /* margin-left: 5.6vw; */
 
 .pure-form {
     display: inline-block;
