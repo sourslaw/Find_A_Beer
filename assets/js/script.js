@@ -4,15 +4,11 @@ const psApiKey = 'afab31918e1ff171dd53ab2f7e43f9d7';
 // mapbox token
 const mbToken = 'pk.eyJ1Ijoic291cnNsYXciLCJhIjoiY2tscjlwNnB4MDhxaTJvbWsycjIwaG1mYiJ9.sJ7hhTHyRj2y6RkyRhuIsw';
 
-
 // form 
 const searchForm = document.getElementById('searchField');
 const searchInput = document.getElementById('searchText');
 
 const mapZoom = document.getElementById('map');
-
-// outside array
-let breweries = [];
 
 
 function getApi(requestUrl, requestUrlDos) {
@@ -30,36 +26,37 @@ function getApi(requestUrl, requestUrlDos) {
         let brewData = data[0];
         brews.push(brewData)
 
-        // const lat = `${data[1].data[0].latitude}`;
-        // const lon = `${data[1].data[0].longitude}`;
-        // console.log(`latitude: ${data[1].data[0].latitude}, longitude: ${data[1].data[0].longitude}`)
-
-
         // for opencage api, 1/2
         const lat = `${data[1].results[0].geometry.lat}`;
         const lon = `${data[1].results[0].geometry.lng}`;
-        console.log(`latitude: ${data[1].results[0].geometry.lat}, longitude: ${data[1].results[0].geometry.lng}`)
-
+        // console.log(`latitude: ${data[1].results[0].geometry.lat}, longitude: ${data[1].results[0].geometry.lng}`)
 
         map.flyTo({ center: [lon, lat], zoom: 11 });
 
-
         // attempting to populate map with keys at the right time .  .
         populateMark(brews);
-
         // setTimeout(() => populateMark(brews), 7000);
+        return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=99&offset=0&lat=${lat}&lng=${lon}`);
 
+    }).then(function(response) {
+        return response.json();
+
+    }).then(function(newData) {
+        console.log(newData)
+
+        const restRoomsData = newData;
+
+        restRooms.push(restRoomsData);
 
     });
 };
 
-// form hanldig
+// form handling
 function handleForm(event) {
     event.preventDefault();
     console.log(`form submitted, search value: ${searchInput.value}`);
 
     const requestUrl = `https://api.openbrewerydb.org/breweries?by_city=${searchInput.value}&per_page=50`;
-    // const requestUrlDos = `http://api.positionstack.com/v1/forward?access_key=${psApiKey}&country=us&query=${searchInput.value}`;
 
     // opencage api for lat/lon since positionstack is down. key is in url (https://opencagedata.com/api), 2/2
     const requestUrlDos = `https://api.opencagedata.com/geocode/v1/json?q=${searchInput.value}&key=eef111c608734d9790eb662afb2657c8`;
@@ -84,16 +81,52 @@ var map = new mapboxgl.Map({
 
 // breweries
 let brews = [];
+// restrooms
+let restRooms = [];
+
+const restroomToggle = document.getElementById('restroomToggle');
+
+// event listener for restrooms display checkbox
+restroomToggle.addEventListener('change', function() {
+
+    if (this.checked) {
+        populateRestrooms(restRooms);
+    } else {
+        document.querySelectorAll('.otherMarker').forEach(function(marker) {
+            marker.remove()
+        });
+    };
+});
+
+// populates restrooms to map
+function populateRestrooms(restRooms) {
+    restRooms.forEach(function(marker) {
+
+        for (i = 0; i < marker.length; i++) {
+
+            var el = document.createElement('div');
+            el.className = 'otherMarker';
+
+            new mapboxgl.Marker(el)
+                .setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + ', ' + `${marker[i].city}` + ', ' + `${marker[i].state}` + '</p>' + '<br>' +
+                        '<p>' + `${marker[i].directions}` + '</p><br>' + '<p>' + `${marker[i].comment}` + '</p>'))
+                .addTo(map);
+        }
+    });
+};
 
 // test populate from brews array
 function populateMark(brews) {
     brews.forEach(function(marker) {
 
         for (i = 0; i < marker.length; i++) {
+
             var el = document.createElement('div');
             el.className = 'marker';
 
-            console.log('name: ' + `${marker[i].name}` + ', latitude: ' + `${marker[i].latitude}` + ', longitude: ' + `${marker[i].longitude}`)
+            // console.log('name: ' + `${marker[i].name}` + ', latitude: ' + `${marker[i].latitude}` + ', longitude: ' + `${marker[i].longitude}`)
 
             new mapboxgl.Marker(el)
                 .setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
@@ -106,7 +139,6 @@ function populateMark(brews) {
         }
     });
 };
-
 
 const brewsList = document.getElementById('brewsList');
 // function to populate list of brewries
@@ -141,13 +173,22 @@ function mainCard(brews) {
     brewsList.append(cardContainer);
 };
 
-// removes child nodes upon new search
+// removes brewery ul list elements, clears brews and restrooms arrays, unchecks restroom checkbox if checked
 function clear() {
-    const byeMain = document.getElementById('brewsList');
 
+    const byeMain = document.getElementById('brewsList');
     while (byeMain.firstChild) {
         byeMain.removeChild(byeMain.firstChild);
     };
 
     brews = [];
+    restRooms = [];
+
+    document.querySelectorAll('.otherMarker').forEach(function(marker) {
+        marker.remove()
+    });
+
+    restroomToggle.checked = false;
 };
+
+// create if/else statement to toggle the check box
