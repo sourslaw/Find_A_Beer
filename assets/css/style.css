@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     font-family: sans-serif;
     font-family: Helvetica, Arial, sans-serif;
@@ -16,6 +16,7 @@ html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
 }
+
 
 /* Pure CSS styling */
 
@@ -35,19 +36,19 @@ html {
     margin: auto;
 }
 
-.appName{
+.appName {
     position: absolute;
-    top:25%;
-    left:50%;
-    z-index:2;
+    top: 25%;
+    left: 50%;
+    z-index: 2;
     font-size: 5rem;
-    transform:translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     color: #1a1a1a;
 }
 
 .pure-menu {
     background: #f9c74f;
-    padding-left:5vw;
+    padding-left: 5vw;
     font-weight: bolder;
     margin-bottom: 3%;
 }
@@ -105,41 +106,43 @@ textarea {
     width: 40%;
 }
 
+
 /* button code */
 
 .pure-button {
-    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%)
+    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
 }
 
 .pure-button {
-     margin: 10px;
-     padding: 15px 45px;
-     text-align: center;
-     text-transform: uppercase;
-     transition: 0.5s;
-     background-size: 200% auto;
-     color: white;            
-     box-shadow: 0 0 20px #eee;
-     border-radius: 10px; 
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
 }
 
 .pure-button:hover {
-     background-image: linear-gradient(to left, #F09819 0%, #EDDE5D  51%, #F09819  100%);
-     background-position: right center; 
-     color: #fff;
-     text-decoration: none;
+    background-image: linear-gradient(to left, #F09819 0%, #EDDE5D 51%, #F09819 100%);
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
 }
-  
+
+
 /* mapbox map styling */
 
 .map-text h3 {
-    padding-left:5.75vw;
+    /* padding-left:5.75vw; */
     margin-top: 5vh;
-    max-width:50vw;
+    max-width: 50vw;
     margin-bottom: 4vh;
 }
 
-.search-text{
+.search-text {
     margin-top: 5vh;
 }
 
@@ -157,6 +160,7 @@ textarea {
     left: 5%;
 }
 
+
 /* .mapboxgl-canvas,
 a.mapboxgl-ctrl-logo{
     /* margin-left: 5.6vw; */
@@ -170,8 +174,9 @@ a.mapboxgl-ctrl-logo{
 }
 
 #brewsList {
-    margin-top:3vh;
+    margin-top: 3vh;
 }
+
 
 /* style the marker */
 
@@ -193,6 +198,7 @@ a.mapboxgl-ctrl-logo{
     cursor: pointer;
 }
 
+
 /* style for the mark pop-up */
 
 .mapboxgl-popup {
@@ -205,15 +211,16 @@ a.mapboxgl-ctrl-logo{
     font-family: 'Open Sans', sans-serif;
 }
 
+
 /* footer */
 
 #footer {
     font-size: 87.5%;
     border-top: 1px solid #eee;
     background: #fafafa;
-    height:20vh;
-    margin-top:76vh;
-    padding-top:3vh;
+    height: 20vh;
+    margin-top: 76vh;
+    padding-top: 3vh;
 }
 
 .info {
