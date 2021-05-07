@@ -12,58 +12,58 @@ const mapZoom = document.getElementById('map');
 
 
 function getApi(requestUrl, requestUrlDos) {
-	Promise.all([
-		fetch(requestUrl),
-		fetch(requestUrlDos)
-	]).then(function (responses) {
-			// console.log(responses);
-			return Promise.all(responses.map(function (response) {
-				return response.json();
-			}));
-	}).then(function(data) {
-		console.log(data);
+    Promise.all([
+        fetch(requestUrl),
+        fetch(requestUrlDos)
+    ]).then(function(responses) {
+        // console.log(responses);
+        return Promise.all(responses.map(function(response) {
+            return response.json();
+        }));
+    }).then(function(data) {
+        console.log(data);
 
-		let brewData = data[0];
-		brews.push(brewData)
-		
-		// for opencage api, 1/2
-		const lat = `${data[1].results[0].geometry.lat}`;
-		const lon = `${data[1].results[0].geometry.lng}`;
-		// console.log(`latitude: ${data[1].results[0].geometry.lat}, longitude: ${data[1].results[0].geometry.lng}`)
+        let brewData = data[0];
+        brews.push(brewData)
 
-		map.flyTo({center: [lon, lat], zoom: 11});
+        // for opencage api, 1/2
+        const lat = `${data[1].results[0].geometry.lat}`;
+        const lon = `${data[1].results[0].geometry.lng}`;
+        // console.log(`latitude: ${data[1].results[0].geometry.lat}, longitude: ${data[1].results[0].geometry.lng}`)
 
-		// attempting to populate map with keys at the right time .  .
-		populateMark(brews);
-		// setTimeout(() => populateMark(brews), 7000);
-		return fetch (`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=99&offset=0&lat=${lat}&lng=${lon}`);
-		
-	}).then(function(response) {
-		return response.json();
+        map.flyTo({ center: [lon, lat], zoom: 11 });
 
-	}).then(function(newData) {
-		console.log(newData)
+        // attempting to populate map with keys at the right time .  .
+        populateMark(brews);
+        // setTimeout(() => populateMark(brews), 7000);
+        return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=99&offset=0&lat=${lat}&lng=${lon}`);
 
-		const restRoomsData = newData;
+    }).then(function(response) {
+        return response.json();
 
-		restRooms.push(restRoomsData);
+    }).then(function(newData) {
+        console.log(newData)
 
-	});
+        const restRoomsData = newData;
+
+        restRooms.push(restRoomsData);
+
+    });
 };
 
 // form handling
 function handleForm(event) {
-	event.preventDefault();
-	console.log(`form submitted, search value: ${searchInput.value}`);
+    event.preventDefault();
+    console.log(`form submitted, search value: ${searchInput.value}`);
 
-	const requestUrl = `https://api.openbrewerydb.org/breweries?by_city=${searchInput.value}&per_page=50`;
-	
-	// opencage api for lat/lon since positionstack is down. key is in url (https://opencagedata.com/api), 2/2
-	const requestUrlDos = `https://api.opencagedata.com/geocode/v1/json?q=${searchInput.value}&key=eef111c608734d9790eb662afb2657c8`;
-	
-	getApi(requestUrl, requestUrlDos);
+    const requestUrl = `https://api.openbrewerydb.org/breweries?by_city=${searchInput.value}&per_page=50`;
 
-	clear();
+    // opencage api for lat/lon since positionstack is down. key is in url (https://opencagedata.com/api), 2/2
+    const requestUrlDos = `https://api.opencagedata.com/geocode/v1/json?q=${searchInput.value}&key=eef111c608734d9790eb662afb2657c8`;
+
+    getApi(requestUrl, requestUrlDos);
+
+    clear();
 };
 
 // form submission
@@ -73,127 +73,125 @@ searchForm.addEventListener('submit', handleForm);
 mapboxgl.accessToken = mbToken;
 
 var map = new mapboxgl.Map({
-	container: 'map',
-	style: 'mapbox://styles/mapbox/light-v10',
-	center: [-96, 37.8],
-	zoom: 3
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [-96, 37.8],
+    zoom: 3
 });
 
 // breweries
-let brews = [
-];
+let brews = [];
 // restrooms
-let restRooms = [
-];
+let restRooms = [];
 
 const restroomToggle = document.getElementById('restroomToggle');
 
 // event listener for restrooms display checkbox
 restroomToggle.addEventListener('change', function() {
 
-	if(this.checked) {
-		populateRestrooms(restRooms);
-	} else {
-		document.querySelectorAll('.otherMarker').forEach(function(marker){
-			marker.remove()
-		});
-	};
+    if (this.checked) {
+        populateRestrooms(restRooms);
+    } else {
+        document.querySelectorAll('.otherMarker').forEach(function(marker) {
+            marker.remove()
+        });
+    };
 });
 
 // populates restrooms to map
 function populateRestrooms(restRooms) {
-	restRooms.forEach(function(marker) {
+    restRooms.forEach(function(marker) {
 
-		for (i =0; i < marker.length; i++) {
+        for (i = 0; i < marker.length; i++) {
 
-			var el = document.createElement('div');
-			el.className = 'otherMarker';
+            var el = document.createElement('div');
+            el.className = 'otherMarker';
 
-			new mapboxgl.Marker(el)
-			.setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
-			.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-				.setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + ', ' + `${marker[i].city}` + ', ' + `${marker[i].state}` + '</p>' + '<br>' + 
-				'<p>' + `${marker[i].directions}` + '</p><br>' + '<p>' + `${marker[i].comment}` + '</p>'))
-			.addTo(map);
-		}
-	});
+            new mapboxgl.Marker(el)
+                .setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + ', ' + `${marker[i].city}` + ', ' + `${marker[i].state}` + '</p>' + '<br>' +
+                        '<p>' + `${marker[i].directions}` + '</p><br>' + '<p>' + `${marker[i].comment}` + '</p>'))
+                .addTo(map);
+        }
+    });
 };
 
 // test populate from brews array
 function populateMark(brews) {
-	brews.forEach(function(marker) {
+    brews.forEach(function(marker) {
 
-		for (i =0; i < marker.length; i++) {
+        for (i = 0; i < marker.length; i++) {
 
-			var el = document.createElement('div');
-			el.className = 'marker';
+            var el = document.createElement('div');
+            el.className = 'marker';
 
-			// console.log('name: ' + `${marker[i].name}` + ', latitude: ' + `${marker[i].latitude}` + ', longitude: ' + `${marker[i].longitude}`)
+            // console.log('name: ' + `${marker[i].name}` + ', latitude: ' + `${marker[i].latitude}` + ', longitude: ' + `${marker[i].longitude}`)
 
-			new mapboxgl.Marker(el)
-			.setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
-			.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-				.setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + ', ' + `${marker[i].city}` + ', ' + `${marker[i].state}` + '</p>' + '<br>' + '<button class="parking-b">Check for Parking </button>'))
-			.addTo(map);
+            new mapboxgl.Marker(el)
+                .setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + ', ' + `${marker[i].city}` + ', ' + `${marker[i].state}`))
+                .addTo(map);
 
-			mainCard(brews);
+            mainCard(brews);
 
-		}
-	});
+        }
+    });
 };
 
 const brewsList = document.getElementById('brewsList');
 // function to populate list of brewries
 function mainCard(brews) {
-	
-	const cardContainer = document.createElement('li');
-	cardContainer.className = '';
-	// cardContainer.setAttribute('style', 'width: 35%;');
-	cardContainer.setAttribute('id', '');
 
-	const cardClass = document.createElement('div');
-	cardClass.setAttribute('class', 'card');
+    const cardContainer = document.createElement('li');
+    cardContainer.className = '';
+    // cardContainer.setAttribute('style', 'width: 35%;');
+    cardContainer.setAttribute('id', '');
 
-	const pOne = document.createElement('h4');
-	pOne.setAttribute('id', 'brewery');
-	pOne.innerText = `${brews[0][i].name}`;
+    const cardClass = document.createElement('div');
+    cardClass.setAttribute('class', 'card');
 
-	const pTwo = document.createElement('p');
-	pTwo.setAttribute('id', 'street');
-	pTwo.innerText = `${brews[0][i].street}`;
+    const pOne = document.createElement('h4');
+    pOne.setAttribute('id', 'brewery');
+    pOne.innerText = `${brews[0][i].name}`;
 
-	const pThree = document.createElement('p');
-	pThree.setAttribute('id', 'city');
-	pThree.innerText = `${brews[0][i].city}, ${brews[0][i].state}, ${brews[0][i].postal_code}`;
+    const pTwo = document.createElement('p');
+    pTwo.setAttribute('id', 'street');
+    pTwo.innerText = `${brews[0][i].street}`;
 
-	const pFour = document.createElement('p');
-	pFour.setAttribute('id', 'phone');
-	pFour.innerText = `${brews[0][i].phone}`;
+    const pThree = document.createElement('p');
+    pThree.setAttribute('id', 'city');
+    pThree.innerText = `${brews[0][i].city}, ${brews[0][i].state}, ${brews[0][i].postal_code}`;
 
-	cardContainer.append(cardClass);
+    const pFour = document.createElement('p');
+    pFour.setAttribute('id', 'phone');
+    pFour.innerText = `${brews[0][i].phone}`;
 
-	cardClass.append(pOne);
-	cardClass.append(pTwo);
-	cardClass.append(pThree);
-	cardClass.append(pFour);
+    cardContainer.append(cardClass);
 
-	brewsList.append(cardContainer);
+    cardClass.append(pOne);
+    cardClass.append(pTwo);
+    cardClass.append(pThree);
+    cardClass.append(pFour);
+
+    brewsList.append(cardContainer);
 };
 
 // removes brewery ul list elements, clears brews and restrooms arrays, unchecks restroom checkbox if checked
 function clear() {
 
-	const byeMain = document.getElementById('brewsList');
-	while (byeMain.firstChild) {
-		byeMain.removeChild(byeMain.firstChild);
-	};
+    const byeMain = document.getElementById('brewsList');
+    while (byeMain.firstChild) {
+        byeMain.removeChild(byeMain.firstChild);
+    };
 
-	brews = [];
-	restRooms = [];
+    brews = [];
+    restRooms = [];
 
-	document.querySelectorAll('.otherMarker').forEach(function(marker){
-		marker.remove()
-	});
+    document.querySelectorAll('.otherMarker').forEach(function(marker) {
+        marker.remove()
+    });
 
-	restroomToggle.checked = false;
+    restroomToggle.checked = false;
 };
