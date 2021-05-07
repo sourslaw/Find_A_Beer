@@ -159,9 +159,10 @@ input-group-field {
 }
 
 
-/* .mapboxgl-canvas,
-a.mapboxgl-ctrl-logo{
-    /* margin-left: 5.6vw; */
+.mapboxgl-canvas {
+    border: solid 4px #26532B;
+}
+
 
 .pure-form {
     display: inline-block;
@@ -254,3 +255,13 @@ a.mapboxgl-ctrl-logo{
     list-style: none;
     margin-bottom: 0;
 }
+
+
+
+.card {
+	border: 1px solid black;
+	border-radius: 1rem;
+	width: 80%;
+	/* margin-left: 25rem; */
+	padding: 1rem;
+  }
