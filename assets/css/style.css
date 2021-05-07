@@ -243,7 +243,7 @@ input-group-field {
     border-top: 1px solid #eee;
     background: #fafafa;
     height: 6vh;
-    margin-top: 20vh;
+    /* margin-top: 20vh; */
     padding-top: 1.75vh;
 }
 
