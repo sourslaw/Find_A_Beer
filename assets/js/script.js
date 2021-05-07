@@ -197,5 +197,3 @@ function clear() {
 
 	restroomToggle.checked = false;
 };
-
-// create if/else statement to toggle the check box
