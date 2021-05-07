@@ -42,9 +42,10 @@ html {
 
 .pure-menu {
     background: #f9c74f;
-    padding-left: 5vw;
+    padding-left:5vw;
     font-weight: bolder;
     margin-bottom: 3%;
+    box-shadow: 10px 5px 5px #26532b;
 }
 
 .pure-g {
@@ -100,11 +101,13 @@ textarea {
     width: 40%;
 }
 
-
+input-group-field {
+   margin-right: 4em;
+}
 /* button code */
 
 .pure-button {
-    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%)
+    background-image: linear-gradient(to right, #26532b 0%, #52985a 51%, #7ca280 100%)
 }
 
 .pure-button {
@@ -117,10 +120,11 @@ textarea {
     color: white;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
+    border-left: 2em;
 }
 
 .pure-button:hover {
-    background-image: linear-gradient(to left, #F09819 0%, #EDDE5D 51%, #F09819 100%);
+    background-image: linear-gradient(to left, #7ca280 0%, #52985a 51%, #26532b 100%);
     background-position: right center;
     color: #fff;
     text-decoration: none;
@@ -163,12 +167,19 @@ a.mapboxgl-ctrl-logo{
     display: inline-block;
 }
 
+.pure-form fieldset {
+    margin: -2em;
+}
+
 #searchField {
     display: inline-block;
 }
 
 #brewsList {
     margin-top: 3vh;
+    width: 40em;
+    height: 37em;
+    overflow-y: scroll;
 }
 
 
@@ -212,9 +223,9 @@ a.mapboxgl-ctrl-logo{
     font-size: 87.5%;
     border-top: 1px solid #eee;
     background: #fafafa;
-    height: 20vh;
-    margin-top: 76vh;
-    padding-top: 3vh;
+    height: 6vh;
+    margin-top: 56vh;
+	padding-top: 1.75vh;
 }
 
 .info {
