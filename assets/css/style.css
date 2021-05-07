@@ -17,6 +17,7 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+
 /* Pure CSS styling */
 
 .pure-img {
@@ -41,7 +42,7 @@ html {
 
 .pure-menu {
     background: #f9c74f;
-    padding-left:5vw;
+    padding-left: 5vw;
     font-weight: bolder;
     margin-bottom: 3%;
     box-shadow: 10px 5px 5px #26532b;
@@ -109,8 +110,9 @@ textarea {
 }
 
 input-group-field {
-   margin-right: 4em;
+    margin-right: 4em;
 }
+
 
 /* button code */
 
@@ -137,6 +139,7 @@ input-group-field {
     color: #fff;
     text-decoration: none;
 }
+
 
 /* mapbox map styling */
 
@@ -166,8 +169,8 @@ input-group-field {
 
 .mapboxgl-canvas {
     border: solid 4px #26532B;
-    
 }
+
 
 /* Brewery Population Styling */
 
@@ -191,13 +194,14 @@ input-group-field {
 }
 
 .card {
-	border: 1px solid rgb(0, 82, 20);
-	border-radius: 1rem;
-	width: 80%;
-	margin-bottom: 1rem;
-	padding: 1rem;
-  }
-  
+    border: 1px solid rgb(0, 82, 20);
+    border-radius: 1rem;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+
 /* style the marker */
 
 .marker {
@@ -218,6 +222,7 @@ input-group-field {
     cursor: pointer;
 }
 
+
 /* style for the mark pop-up */
 
 .mapboxgl-popup {
@@ -230,6 +235,7 @@ input-group-field {
     font-family: 'Open Sans', sans-serif;
 }
 
+
 /* footer */
 
 #footer {
@@ -237,8 +243,8 @@ input-group-field {
     border-top: 1px solid #eee;
     background: #fafafa;
     height: 6vh;
-    margin-top: 20vh;
-	padding-top: 1.75vh;
+    /* margin-top: 20vh; */
+    padding-top: 1.75vh;
 }
 
 .info {
@@ -266,4 +272,16 @@ input-group-field {
 .info-links {
     list-style: none;
     margin-bottom: 0;
+}
+
+.Search-Box {
+    margin-top: -30px;
+}
+
+.Brew-Box {
+    margin-top: -5px;
+}
+
+.mapboxgl-canvas {
+    border: solid 5px #26532B;
 }
