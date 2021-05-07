@@ -151,6 +151,9 @@ function mainCard(brews) {
 	// cardContainer.setAttribute('style', 'width: 35%;');
 	cardContainer.setAttribute('id', '');
 
+	const cardClass = document.createElement('div');
+	cardClass.setAttribute('class', 'card');
+
 	const pOne = document.createElement('h4');
 	pOne.setAttribute('id', 'brewery');
 	pOne.innerText = `${brews[0][i].name}`;
@@ -167,10 +170,12 @@ function mainCard(brews) {
 	pFour.setAttribute('id', 'phone');
 	pFour.innerText = `${brews[0][i].phone}`;
 
-	cardContainer.append(pOne);
-	cardContainer.append(pTwo);
-	cardContainer.append(pThree);
-	cardContainer.append(pFour);
+	cardContainer.append(cardClass);
+
+	cardClass.append(pOne);
+	cardClass.append(pTwo);
+	cardClass.append(pThree);
+	cardClass.append(pFour);
 
 	brewsList.append(cardContainer);
 };
@@ -192,5 +197,3 @@ function clear() {
 
 	restroomToggle.checked = false;
 };
-
-// create if/else statement to toggle the check box
