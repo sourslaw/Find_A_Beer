@@ -162,9 +162,9 @@ input-group-field {
     overflow: hidden;
     top: 45;
     width: 50%;
-    height: 70%;
+    height: 50%;
     padding: 20%;
-    left: 5%;
+    left: 3%;
 }
 
 .mapboxgl-canvas {
