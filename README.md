@@ -11,8 +11,11 @@
 - Deployed application may be seen: [here](https://sourslaw.github.io/Project_One/)
 
 ### Usage
+![alt text](assets/images/screenshot_usage.gif)
+
 - Entering the name of a US city, the user is presented with the local breweries
     - The location of restrooms can also be toggled on and off
+- Clicking on either a brewery location or a restroom location, the user is presented with relevant information
 
 ### Credits
 - [Open Brewery DB](https://www.openbrewerydb.org/)

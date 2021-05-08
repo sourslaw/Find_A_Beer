@@ -26,17 +26,15 @@ function getApi(requestUrl, requestUrlDos) {
         let brewData = data[0];
         brews.push(brewData)
 
-        // for opencage api, 1/2
         const lat = `${data[1].results[0].geometry.lat}`;
         const lon = `${data[1].results[0].geometry.lng}`;
         // console.log(`latitude: ${data[1].results[0].geometry.lat}, longitude: ${data[1].results[0].geometry.lng}`)
 
         map.flyTo({ center: [lon, lat], zoom: 11 });
 
-        // attempting to populate map with keys at the right time .  .
         populateMark(brews);
-        // setTimeout(() => populateMark(brews), 7000);
-        return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=99&offset=0&lat=${lat}&lng=${lon}`);
+
+		return fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=99&offset=0&lat=${lat}&lng=${lon}`);
 
     }).then(function(response) {
         return response.json();
@@ -58,7 +56,6 @@ function handleForm(event) {
 
     const requestUrl = `https://api.openbrewerydb.org/breweries?by_city=${searchInput.value}&per_page=50`;
 
-    // opencage api for lat/lon since positionstack is down. key is in url (https://opencagedata.com/api), 2/2
     const requestUrlDos = `https://api.opencagedata.com/geocode/v1/json?q=${searchInput.value}&key=eef111c608734d9790eb662afb2657c8`;
 
     getApi(requestUrl, requestUrlDos);
@@ -141,6 +138,7 @@ function populateMark(brews) {
 };
 
 const brewsList = document.getElementById('brewsList');
+
 // function to populate list of brewries
 function mainCard(brews) {
 
