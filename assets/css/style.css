@@ -1,45 +1,22 @@
-* {
-    box-sizing: border-box;
-    font-family: sans-serif;
-    font-family: Helvetica, Arial, sans-serif;
-}
-
 body {
-    min-width: 320px;
-    background-color: rgb(249, 250, 235);
-    color: #777;
-    line-height: 1.6;
+	background-color: rgb(249, 250, 235);
 }
 
-html {
-    font-family: sans-serif;
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
+#box1 {
+	display: flex;
+	justify-content: flex-end;
+}
+#box3 {
+	text-align: center;
+}
+#box4 {
+	background-color: rgb(250, 209, 76);
+	display: flex;
+	justify-content: center;
 }
 
 
 /* Pure CSS styling */
-
-.pure-img {
-    background-image: url("https://i.pinimg.com/originals/43/b3/8a/43b38a6bbb4537b3ef444049002f26b7.jpg");
-    max-width: 100%;
-    min-height: 14em;
-    display: block;
-    background-position: center;
-    background-repeat: repeat;
-    background-size: auto;
-}
-
-.appName {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    z-index: 2;
-    font-size: 5rem;
-    transform: translate(-50%, -50%);
-    color: #1a1a1a;
-}
-
 .pure-menu {
     background: #f9c74f;
     padding-left: 5vw;
@@ -54,63 +31,6 @@ html {
     border-radius: 1rem;
     color: #777;
     text-decoration: none;
-}
-
-.pure-g {
-    letter-spacing: -.31em;
-    text-rendering: optimizespeed;
-    font-family: FreeSans, Arimo, Droid Sans, Helvetica, Arial, sans-serif;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -ms-flex-line-pack: start;
-    align-content: flex-start;
-}
-
-.pure-g [class*=pure-u],
-button,
-html,
-input,
-select,
-textarea,
-map {
-    font-family: Helvetica, Arial, sans-serif;
-    letter-spacing: .01em;
-}
-
-.grids .grids-example [class*=pure-u] {
-    padding: 0;
-    border-width: 1px 0 0;
-    text-align: left;
-    font-family: Helvetica, Arial, sans-serif;
-}
-
-.grids-example [class*=pure-u] {
-    font-family: Consolas, Liberation Mono, Courier, monospace;
-    text-align: center;
-    padding: 1em 0;
-    border: 1px solid #ddd;
-    border-right: none;
-    border-bottom: none;
-}
-
-.pure-g [class*=pure-u],
-button,
-html,
-input,
-select,
-textarea {
-    font-family: Helvetica, Arial, sans-serif;
-    letter-spacing: .01em;
-}
-
-.pure-u-2-5 {
-    width: 40%;
-}
-
-input-group-field {
-    margin-right: 4em;
 }
 
 
@@ -149,56 +69,43 @@ input-group-field {
     margin-bottom: 4vh;
 }
 
-.search-text {
-    margin-top: 5vh;
-}
-
-#map-container {
-    height: 100%;
-}
-
 #map {
-    position: absolute;
-    overflow: hidden;
-    top: 45;
-    width: 50%;
-    height: 50%;
-    padding: 20%;
-    left: 3%;
-}
-
-.mapboxgl-canvas {
-    border: solid 4px #26532B;
+	border: solid 1px #26532B;
+	position: absolute;
+	margin-right: 1rem;
+	height: 61.5em;
+	width: 50%;
 }
 
 
 /* Brewery Population Styling */
 
-.pure-form {
-    display: inline-block;
-}
-
-.pure-form fieldset {
-    margin: -2em;
-}
-
-#searchField {
-    display: inline-block;
-}
-
 #brewsList {
-    margin-top: 3vh;
+    margin-top: 2.5vh;
     width: 40em;
     height: 37em;
     overflow-y: scroll;
 }
 
 .card {
+	background-color: #fffefe;
     border: 1px solid rgb(0, 82, 20);
-    border-radius: 1rem;
-    width: 80%;
-    margin-bottom: 1rem;
-    padding: 1rem;
+    border-radius: 1.25rem;
+	width: 65%;
+    margin-bottom: .75rem;
+    padding: .75rem;
+}
+
+.card > h4 {
+	margin-top: .1rem;
+}
+
+.card > p {
+	line-height: 50%;
+}
+
+.card > p:last-child {
+	margin-bottom: 10px;
 }
 
 
@@ -239,49 +146,23 @@ input-group-field {
 /* footer */
 
 #footer {
-    font-size: 87.5%;
-    border-top: 1px solid #eee;
-    background: #fafafa;
-    height: 6vh;
-    /* margin-top: 20vh; */
-    padding-top: 1.75vh;
+	background: #fafafa;
+	margin-top: 1rem;
+	height: 4rem;
+	bottom: 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	color: #343a40;
 }
 
-.info {
-    line-height: 1.6;
-    text-align: center;
-    margin: 0 auto;
+a:link {
+	color: #777;
+	text-decoration: none;
 }
-
-.pure-g {
-    letter-spacing: -.31em;
-    text-rendering: optimizespeed;
-    font-family: FreeSans, Arimo, Droid Sans, Helvetica, Arial, sans-serif;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -ms-flex-line-pack: start;
-    align-content: flex-start;
+a:visited {
+	color: #777;
 }
-
-.info-names {
-    margin-top: 0;
-}
-
-.info-links {
-    list-style: none;
-    margin-bottom: 0;
-}
-
-.Search-Box {
-    margin-top: -30px;
-}
-
-.Brew-Box {
-    margin-top: -5px;
-}
-
-.mapboxgl-canvas {
-    border: solid 5px #26532B;
+a:hover {
+	color: rgb(0, 82, 20);
 }
