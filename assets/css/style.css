@@ -142,13 +142,17 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.mapboxgl-popup-content > p {
+	line-height: 90%;
+}
+
 
 /* footer */
 
 #footer {
 	background: #fafafa;
 	margin-top: 1rem;
-	height: 4rem;
+	height: 3rem;
 	bottom: 0;
 	position: fixed;
 	left: 0;
