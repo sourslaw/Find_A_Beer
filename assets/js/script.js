@@ -7,7 +7,7 @@ const mbToken = 'pk.eyJ1Ijoic291cnNsYXciLCJhIjoiY2tscjlwNnB4MDhxaTJvbWsycjIwaG1m
 // form 
 const searchForm = document.getElementById('searchField');
 const searchInput = document.getElementById('searchText');
-
+// map
 const mapZoom = document.getElementById('map');
 
 
@@ -40,7 +40,7 @@ function getApi(requestUrl, requestUrlDos) {
         return response.json();
 
     }).then(function(newData) {
-        console.log(newData)
+        // console.log(newData)
 
         const restRoomsData = newData;
 
@@ -144,11 +144,18 @@ function mainCard(brews) {
 
     const cardContainer = document.createElement('li');
     cardContainer.className = '';
-    // cardContainer.setAttribute('style', 'width: 35%;');
     cardContainer.setAttribute('id', '');
 
     const cardClass = document.createElement('div');
     cardClass.setAttribute('class', 'card');
+	cardClass.setAttribute('id', `${brews[0][i].name}`);
+	
+	let inLon = `${brews[0][i].longitude}`
+	let inLat = `${brews[0][i].latitude}`
+
+	cardClass.addEventListener('click', function() {
+		map.flyTo({ center: [`${inLon}`, `${inLat}`], zoom: 15 });	
+	});
 
     const pOne = document.createElement('h4');
     pOne.setAttribute('id', 'brewery');
