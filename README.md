@@ -13,8 +13,10 @@
 ### Usage
 ![alt text](assets/images/screenshot_usage.gif)
 
-- Entering the name of a US city, the user is presented with the local breweries
-    - The location of restrooms can also be toggled on and off
+- Entering the name of a US city, the user is presented with the local breweries on the map
+	- Information cards are also populated under the search area
+	- Clicking on a brewery's information card will zoom to that location
+- The location of restrooms can also be toggled on and off
 - Clicking on either a brewery location or a restroom location, the user is presented with relevant information
 
 ### Credits
@@ -23,7 +25,7 @@
 - [Pure.css](https://purecss.io/)
 - [Refuge Restrooms](https://www.refugerestrooms.org/api/docs/)
 
-### Collaborators
+### Contributors
 - [Daniel Mosso](https://github.com/benjimosso)
 - [Haley Parish](https://github.com/heparish)
 
