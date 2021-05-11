@@ -6,9 +6,6 @@ body {
 	display: flex;
 	justify-content: flex-end;
 }
-#box3 {
-	text-align: center;
-}
 #box4 {
 	background-color: rgb(250, 209, 76);
 	display: flex;
@@ -158,6 +155,7 @@ body {
 	left: 0;
 	right: 0;
 	color: #343a40;
+	text-align: center;
 }
 
 a:link {
@@ -169,4 +167,46 @@ a:visited {
 }
 a:hover {
 	color: rgb(0, 82, 20);
+}
+
+
+/* mostly mobile friendly */
+
+@media (max-width: 768px) {
+	#box1 {
+		display: flex;
+		justify-content: center;
+		height: 50vh;
+	}
+	.pure-menu {
+		width: 768px;
+	}
+	.pure-form {
+		display: flex;
+		justify-content: center;
+	}
+	.pure-controls {
+		display: flex;
+		justify-content: center;
+	}
+	#map {
+		height: 50%;
+		width: 95%;
+		margin-right: 0em;
+	}
+	#brewBox {
+		display: flex;
+		justify-content: center;
+		margin-bottom: -1rem;
+	}
+	.card {
+		width: 85%;
+		padding: .5rem;
+		margin-bottom: .75rem;
+	}
+	#footer {
+		position: relative;
+		margin-top: 0rem;
+		height: 4rem;
+	}
 }

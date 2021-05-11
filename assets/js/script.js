@@ -129,9 +129,9 @@ function populateMark(brews) {
                 .setLngLat(JSON.parse('[' + `${marker[i].longitude}` + ', ' + `${marker[i].latitude}` + ']'))
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
                     .setHTML('<h3>' + `${marker[i].name}` + '</h3><p>' + `${marker[i].street}` + '</p><p>' + `${marker[i].city}` + ', ' + `${marker[i].state}` + '</p>' ))
-                .addTo(map);
-
-            mainCard(brews);
+				.addTo(map);
+				
+			mainCard(brews);
 
         }
     });
