@@ -186,9 +186,6 @@ a:hover {
 		justify-content: center;
 		height: 50vh;
 	}
-	.pure-menu {
-		width: 768px;
-	}
 	.pure-form {
 		display: flex;
 		justify-content: center;
