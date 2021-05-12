@@ -105,6 +105,14 @@ body {
 	margin-bottom: 10px;
 }
 
+.card:hover {
+	background-image: linear-gradient(to left, #7ca280 0%, #52985a 100%);
+	border: 1px solid #fff;
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
 
 /* style the marker */
 
