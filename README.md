@@ -27,11 +27,11 @@
 
 ### Contributors
 - Daniel Mosso;
-https://github.com/benjimosso;
-benjimosso@gmail.com
-- Haley Parish;
-https://github.com/heparish;
-heparish@ucdavis.edu
+	- [GitHub](https://github.com/benjimosso)
+	- [Email](benjimosso@gmail.com)
+- Haley Parish
+	- [GitHub](https://github.com/heparish)
+	- [Email](heparish@ucdavis.edu)
 
 ### License
 - Licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license.
