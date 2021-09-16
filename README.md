@@ -8,7 +8,7 @@
 
 ### Installation
 - The project is uploaded to [GitHub](https://github.com/) at the following repository: [here](https://github.com/sourslaw/Project_One)
-- Deployed application may be seen: [here](https://sourslaw.github.io/Project_One/)
+- Deployed application may be seen: [here](https://sourslaw.github.io/Find_A_Beer/)
 
 ### Usage
 ![alt text](assets/images/screenshot_usage.gif)
@@ -26,8 +26,12 @@
 - [Refuge Restrooms](https://www.refugerestrooms.org/api/docs/)
 
 ### Contributors
-- [Daniel Mosso](https://github.com/benjimosso)
-- [Haley Parish](https://github.com/heparish)
+- Daniel Mosso;
+https://github.com/benjimosso;
+benjimosso@gmail.com
+- Haley Parish;
+https://github.com/heparish;
+heparish@ucdavis.edu
 
 ### License
 - Licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license.
