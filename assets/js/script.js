@@ -56,7 +56,7 @@ function handleForm(event) {
 
     const requestUrl = `https://api.openbrewerydb.org/breweries?by_city=${searchInput.value}&per_page=50`;
 
-    const requestUrlDos = `https://api.opencagedata.com/geocode/v1/json?q=${searchInput.value}&key=eef111c608734d9790eb662afb2657c8`;
+    const requestUrlDos = `https://api.opencagedata.com/geocode/v1/json?q=${searchInput.value}&key=572098076428450ab3ff836e46b6067a`;
 
     getApi(requestUrl, requestUrlDos);
 
